@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rReservas));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labe = new System.Windows.Forms.Label();
-            this.UsuarioTextBox = new System.Windows.Forms.TextBox();
             this.Checkoutbutton = new System.Windows.Forms.Button();
             this.Checkinbutton = new System.Windows.Forms.Button();
             this.ClientecomboBox = new System.Windows.Forms.ComboBox();
@@ -70,6 +69,7 @@
             this.MontotextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.MyErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.UsuarioCombobox = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -81,8 +81,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox1.Controls.Add(this.UsuarioCombobox);
             this.groupBox1.Controls.Add(this.labe);
-            this.groupBox1.Controls.Add(this.UsuarioTextBox);
             this.groupBox1.Controls.Add(this.Checkoutbutton);
             this.groupBox1.Controls.Add(this.Checkinbutton);
             this.groupBox1.Controls.Add(this.ClientecomboBox);
@@ -105,19 +105,11 @@
             // labe
             // 
             this.labe.AutoSize = true;
-            this.labe.Location = new System.Drawing.Point(634, 23);
+            this.labe.Location = new System.Drawing.Point(566, 23);
             this.labe.Name = "labe";
             this.labe.Size = new System.Drawing.Size(43, 13);
             this.labe.TabIndex = 25;
             this.labe.Text = "Usuario";
-            // 
-            // UsuarioTextBox
-            // 
-            this.UsuarioTextBox.Location = new System.Drawing.Point(678, 20);
-            this.UsuarioTextBox.Name = "UsuarioTextBox";
-            this.UsuarioTextBox.ReadOnly = true;
-            this.UsuarioTextBox.Size = new System.Drawing.Size(79, 20);
-            this.UsuarioTextBox.TabIndex = 24;
             // 
             // Checkoutbutton
             // 
@@ -396,6 +388,7 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -403,6 +396,7 @@
             this.Column3,
             this.Column4,
             this.Column5});
+            this.dataGridView1.GridColor = System.Drawing.Color.Teal;
             this.dataGridView1.Location = new System.Drawing.Point(73, 11);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(546, 169);
@@ -448,6 +442,7 @@
             this.Removerbutton.TabIndex = 13;
             this.Removerbutton.Text = "Remover Fila";
             this.Removerbutton.UseVisualStyleBackColor = true;
+            this.Removerbutton.Click += new System.EventHandler(this.Removerbutton_Click);
             // 
             // MontotextBox
             // 
@@ -471,10 +466,19 @@
             // 
             this.MyErrorProvider.ContainerControl = this;
             // 
+            // UsuarioCombobox
+            // 
+            this.UsuarioCombobox.FormattingEnabled = true;
+            this.UsuarioCombobox.Location = new System.Drawing.Point(615, 20);
+            this.UsuarioCombobox.Name = "UsuarioCombobox";
+            this.UsuarioCombobox.Size = new System.Drawing.Size(121, 21);
+            this.UsuarioCombobox.TabIndex = 26;
+            // 
             // rReservas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(800, 513);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.Eliminarbutton);
@@ -533,11 +537,11 @@
         private System.Windows.Forms.ErrorProvider MyErrorProvider;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label labe;
-        private System.Windows.Forms.TextBox UsuarioTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.ComboBox UsuarioCombobox;
     }
 }

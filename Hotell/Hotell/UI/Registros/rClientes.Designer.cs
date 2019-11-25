@@ -58,6 +58,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox1.Controls.Add(this.Buscarbutton);
             this.groupBox1.Controls.Add(this.UsuarioLabel);
             this.groupBox1.Controls.Add(this.EmailtextBox);
@@ -201,6 +202,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox2.Controls.Add(this.Eliminarbutton);
             this.groupBox2.Controls.Add(this.Guardarbutton);
             this.groupBox2.Controls.Add(this.Nuevobutton);
@@ -257,9 +259,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(371, 373);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "rClientes";
             this.Text = "Clientes";
             this.groupBox1.ResumeLayout(false);

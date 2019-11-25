@@ -187,6 +187,11 @@ namespace Hotell.UI.Consultas
                // reporte.ShowDialog();
             }
         }
+
+        private void CHabitaciones_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

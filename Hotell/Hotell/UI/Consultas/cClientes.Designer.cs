@@ -56,7 +56,7 @@
             // 
             // CriteriotextBox
             // 
-            this.CriteriotextBox.Location = new System.Drawing.Point(415, 45);
+            this.CriteriotextBox.Location = new System.Drawing.Point(501, 50);
             this.CriteriotextBox.Name = "CriteriotextBox";
             this.CriteriotextBox.Size = new System.Drawing.Size(201, 20);
             this.CriteriotextBox.TabIndex = 25;
@@ -72,7 +72,7 @@
             "Cedula",
             "Telefono",
             "Direccion"});
-            this.FiltrocomboBox.Location = new System.Drawing.Point(226, 44);
+            this.FiltrocomboBox.Location = new System.Drawing.Point(198, 49);
             this.FiltrocomboBox.Name = "FiltrocomboBox";
             this.FiltrocomboBox.Size = new System.Drawing.Size(175, 21);
             this.FiltrocomboBox.TabIndex = 24;
@@ -80,7 +80,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(422, 15);
+            this.label4.Location = new System.Drawing.Point(411, 57);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 23;
@@ -89,7 +89,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(223, 16);
+            this.label3.Location = new System.Drawing.Point(152, 52);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 13);
             this.label3.TabIndex = 22;
@@ -108,7 +108,7 @@
             // Consultarbutton
             // 
             this.Consultarbutton.Image = ((System.Drawing.Image)(resources.GetObject("Consultarbutton.Image")));
-            this.Consultarbutton.Location = new System.Drawing.Point(622, 33);
+            this.Consultarbutton.Location = new System.Drawing.Point(708, 38);
             this.Consultarbutton.Name = "Consultarbutton";
             this.Consultarbutton.Size = new System.Drawing.Size(51, 41);
             this.Consultarbutton.TabIndex = 26;
@@ -117,6 +117,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox2.Controls.Add(this.Consultarbutton);
             this.groupBox2.Controls.Add(this.FiltrocomboBox);
             this.groupBox2.Controls.Add(this.CriteriotextBox);
@@ -132,7 +133,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(823, 542);
             this.Controls.Add(this.Imprimirbutton);
             this.Controls.Add(this.ConsultadataGridView);

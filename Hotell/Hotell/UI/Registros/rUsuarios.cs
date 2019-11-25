@@ -132,11 +132,11 @@ namespace Hotell.UI.Registros
                 MyErrorProvider.SetError(ClavetextBox, "No puede ser vacio.");
                 paso = false;
             }
-              if ((CelularmaskedTextBox1.MaskCompleted))
-             {
-               MyErrorProvider.SetError(CelularmaskedTextBox1, "No puede ser vacio.");
-              paso = false;
-              }
+            //  if ((CelularmaskedTextBox1.MaskCompleted))
+          //   {
+           //    MyErrorProvider.SetError(CelularmaskedTextBox1, "No puede ser vacio.");
+           //   paso = false;
+           //   }
             if (ConfirmartextBox.Text != ClavetextBox.Text)
             {
                 MyErrorProvider.SetError(ConfirmartextBox, "La clave no coincide.");

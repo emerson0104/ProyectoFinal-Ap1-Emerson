@@ -76,5 +76,18 @@ namespace Hotell
             us.StartPosition = FormStartPosition.CenterScreen;
             us.Show();
         }
+
+        private void UsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rUsuarios use = new rUsuarios();
+            use.MdiParent = this;
+            use.StartPosition = FormStartPosition.CenterScreen;
+            use.Show();
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

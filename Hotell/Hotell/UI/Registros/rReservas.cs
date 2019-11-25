@@ -23,8 +23,9 @@ namespace Hotell.UI.Registros
             InitializeComponent();
             Cliente();
             Habitacion();
+            user();
             Detalle = new List<ReservasDetalle>();
-            //   CargarUsuario();
+           //  CargarUsuario();
             
         }
         private void Cliente()
@@ -37,7 +38,17 @@ namespace Hotell.UI.Registros
             ClientecomboBox.ValueMember = "ClienteId";
 
         }
-         void fechaAdia()
+        private void user()
+        {
+            RepositorioBase<Usuarios> db = new RepositorioBase<Usuarios>();
+            var listado = new List<Usuarios>();
+            listado = db.GetList(p => true);
+            UsuarioCombobox.DataSource = listado;
+            UsuarioCombobox.DisplayMember = "Nombres";
+            UsuarioCombobox.ValueMember = "UsuarioId";
+
+        }
+      void fechaAdia()
         {
             int dia;
             
@@ -46,11 +57,11 @@ namespace Hotell.UI.Registros
             DateTime fechaF = r.FechaSalida= FechaSalidadateTimePicker.Value.Date;
             TimeSpan T = fechaF- fechai;
             dia = T.Days;
-        ///    decimal v=Convert.ToDecimal(ValortextBox.Text);
-            decimal d = (decimal)dia;
-           
- 
-             decimal res = (d);
+            
+            decimal d = Convert.ToDecimal(dia);
+            Habitaciones p = NumerocomboBox.SelectedItem as Habitaciones;
+
+           decimal res = (d*p.Valor);
           PreciotextBox.Text = Convert.ToString (res);
 
 
@@ -150,9 +161,10 @@ namespace Hotell.UI.Registros
             r.FechaReserva = FechaReservadateTimePicker.Value;
             r.MontroReserva = Convert.ToDecimal(MontotextBox.Text);
             r.FechaLlegada = FechaLlegadateTimePicker.Value;
-            r.FechaSalida = FechaSalidadateTimePicker.Value; 
-            r.UsuarioId = id;
-             
+            r.FechaSalida = FechaSalidadateTimePicker.Value;
+            r.UsuarioId = Convert.ToInt32(UsuarioCombobox.SelectedValue.ToString());
+
+
 
             Habitaciones d = NumerocomboBox.SelectedItem as Habitaciones;
 
@@ -306,8 +318,8 @@ namespace Hotell.UI.Registros
             {
                 TipotextBox.Text = p.Tipo;
                 ValortextBox.Text = Convert.ToString(p.Valor);
-              
 
+                
             }
         }
 
@@ -318,17 +330,28 @@ namespace Hotell.UI.Registros
 
         private void ValortextBox_TextChanged(object sender, EventArgs e)
         {
-         
            
-        }
+          
+            }
 
         private void FechaSalidadateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-           
-           fechaAdia();
 
-            
+
+            fechaAdia();
+
+        }
+
+        private void Removerbutton_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count > 0 && dataGridView1.CurrentRow != null)
+            {
+                Detalle.RemoveAt(dataGridView1.CurrentRow.Index);
+                CargarGrid();
+                CalcularTotal();
+            }
         }
     }
-}
+    }
+
 

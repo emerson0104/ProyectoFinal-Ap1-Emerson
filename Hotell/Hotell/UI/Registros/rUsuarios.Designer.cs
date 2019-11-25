@@ -67,6 +67,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.TiposcomboBox);
             this.groupBox1.Controls.Add(this.TotalVendidotextBox);
@@ -121,7 +122,6 @@
             // 
             this.TotalVendidotextBox.Location = new System.Drawing.Point(101, 309);
             this.TotalVendidotextBox.Name = "TotalVendidotextBox";
-            this.TotalVendidotextBox.ReadOnly = true;
             this.TotalVendidotextBox.Size = new System.Drawing.Size(197, 20);
             this.TotalVendidotextBox.TabIndex = 24;
             // 
@@ -352,9 +352,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(369, 438);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "rUsuarios";
             this.Text = "Usuarios";
             this.groupBox1.ResumeLayout(false);

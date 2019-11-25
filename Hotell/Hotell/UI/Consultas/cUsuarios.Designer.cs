@@ -80,6 +80,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(526, 22);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(39, 13);
@@ -88,6 +89,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox2.Controls.Add(this.Consultarbutton);
             this.groupBox2.Controls.Add(this.FiltrocomboBox);
             this.groupBox2.Controls.Add(this.label3);
@@ -133,6 +135,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox1.Controls.Add(this.RangocheckBox);
             this.groupBox1.Controls.Add(this.HastadateTimePicker);
             this.groupBox1.Controls.Add(this.DesdedateTimePicker);
@@ -197,7 +200,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(823, 542);
             this.Controls.Add(this.Imprimirbutton);
             this.Controls.Add(this.ConsultadataGridView);
