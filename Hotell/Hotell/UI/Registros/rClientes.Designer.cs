@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rClientes));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Buscarbutton = new System.Windows.Forms.Button();
-            this.UsuarioLabel = new System.Windows.Forms.Label();
             this.EmailtextBox = new System.Windows.Forms.TextBox();
             this.DirecciontextBox = new System.Windows.Forms.TextBox();
             this.NombrestextBox = new System.Windows.Forms.TextBox();
@@ -60,7 +59,6 @@
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox1.Controls.Add(this.Buscarbutton);
-            this.groupBox1.Controls.Add(this.UsuarioLabel);
             this.groupBox1.Controls.Add(this.EmailtextBox);
             this.groupBox1.Controls.Add(this.DirecciontextBox);
             this.groupBox1.Controls.Add(this.NombrestextBox);
@@ -94,15 +92,6 @@
             this.Buscarbutton.UseVisualStyleBackColor = true;
             this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
-            // UsuarioLabel
-            // 
-            this.UsuarioLabel.AutoSize = true;
-            this.UsuarioLabel.Location = new System.Drawing.Point(285, 210);
-            this.UsuarioLabel.Name = "UsuarioLabel";
-            this.UsuarioLabel.Size = new System.Drawing.Size(41, 13);
-            this.UsuarioLabel.TabIndex = 12;
-            this.UsuarioLabel.Text = "usuario";
-            // 
             // EmailtextBox
             // 
             this.EmailtextBox.Location = new System.Drawing.Point(77, 175);
@@ -123,6 +112,7 @@
             this.NombrestextBox.Name = "NombrestextBox";
             this.NombrestextBox.Size = new System.Drawing.Size(175, 20);
             this.NombrestextBox.TabIndex = 9;
+            this.NombrestextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombrestextBox_KeyPress);
             // 
             // ApellidostextBox
             // 
@@ -130,6 +120,7 @@
             this.ApellidostextBox.Name = "ApellidostextBox";
             this.ApellidostextBox.Size = new System.Drawing.Size(176, 20);
             this.ApellidostextBox.TabIndex = 8;
+            this.ApellidostextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ApellidostextBox_KeyPress);
             // 
             // CelularmaskedTextBox
             // 
@@ -290,7 +281,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown IdnumericUpDown;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label UsuarioLabel;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button Eliminarbutton;
         private System.Windows.Forms.Button Guardarbutton;

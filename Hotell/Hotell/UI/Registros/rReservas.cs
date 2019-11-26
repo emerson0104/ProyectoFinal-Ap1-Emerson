@@ -23,7 +23,7 @@ namespace Hotell.UI.Registros
             InitializeComponent();
             Cliente();
             Habitacion();
-            user();
+            
             Detalle = new List<ReservasDetalle>();
            //  CargarUsuario();
             
@@ -38,31 +38,22 @@ namespace Hotell.UI.Registros
             ClientecomboBox.ValueMember = "ClienteId";
 
         }
-        private void user()
-        {
-            RepositorioBase<Usuarios> db = new RepositorioBase<Usuarios>();
-            var listado = new List<Usuarios>();
-            listado = db.GetList(p => true);
-            UsuarioCombobox.DataSource = listado;
-            UsuarioCombobox.DisplayMember = "Nombres";
-            UsuarioCombobox.ValueMember = "UsuarioId";
-
-        }
+      
       void fechaAdia()
         {
             int dia;
-            
-            Reservas r = new Reservas();
-           DateTime fechai= r.FechaLlegada=FechaLlegadateTimePicker.Value.Date;
-            DateTime fechaF = r.FechaSalida= FechaSalidadateTimePicker.Value.Date;
-            TimeSpan T = fechaF- fechai;
-            dia = T.Days;
-            
-            decimal d = Convert.ToDecimal(dia);
-            Habitaciones p = NumerocomboBox.SelectedItem as Habitaciones;
 
-           decimal res = (d*p.Valor);
-          PreciotextBox.Text = Convert.ToString (res);
+            Reservas r = new Reservas();
+            DateTime fechai = r.FechaLlegada = FechaLlegadateTimePicker.Value.Date;
+            DateTime fechaF = r.FechaSalida = FechaSalidadateTimePicker.Value.Date;
+            TimeSpan T = fechaF - fechai;
+            dia = T.Days;
+            ///    decimal v=Convert.ToDecimal(ValortextBox.Text);
+            decimal d = (decimal)dia;
+
+
+            decimal res = (d);
+            PreciotextBox.Text = Convert.ToString(res);
 
 
 
@@ -162,7 +153,7 @@ namespace Hotell.UI.Registros
             r.MontroReserva = Convert.ToDecimal(MontotextBox.Text);
             r.FechaLlegada = FechaLlegadateTimePicker.Value;
             r.FechaSalida = FechaSalidadateTimePicker.Value;
-            r.UsuarioId = Convert.ToInt32(UsuarioCombobox.SelectedValue.ToString());
+            r.UsuarioId = 1;
 
 
 
@@ -176,6 +167,7 @@ namespace Hotell.UI.Registros
         }
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
+
             if (NumerocomboBox.SelectedValue != null)
             {
                 int d = (int)NumerocomboBox.SelectedValue;
@@ -188,6 +180,8 @@ namespace Hotell.UI.Registros
                         return;
                     }
                 }
+                if (Existencia())
+                    return;
 
 
 
@@ -211,12 +205,14 @@ namespace Hotell.UI.Registros
                 {
                     this.Detalle.Add(new ReservasDetalle()
                     {
+                        Id = 0,
+                        ReservaId = (int)IdnumericUpDown.Value,
                         HabitacionId = (int)NumerocomboBox.SelectedValue,
                         Numero = NumerocomboBox.Text,
-                        Valor = Convert.ToDecimal(ValortextBox.Text),
                         Tipo = TipotextBox.Text,
-                        Precio = Convert.ToDecimal(PreciotextBox.Text),
-
+                        Dias = Convert.ToDecimal(PreciotextBox.Text),
+                        Precio = Convert.ToDecimal(ValortextBox.Text),
+                        Importe = Convert.ToDecimal(ImporteTextBox.Text)
                     });
 
                 }
@@ -225,8 +221,11 @@ namespace Hotell.UI.Registros
                 TipotextBox.Text = null;
                 ValortextBox.Text = null;
                 CargarGrid();
-                CalcularTotal();
+                CargaTotal();
+                dataGridView1.Columns["Id"].Visible = false;
+                dataGridView1.Columns["ReservaId"].Visible = false;
             }
+
         }
         public void CalcularTotal()
         {
@@ -308,8 +307,26 @@ namespace Hotell.UI.Registros
 
         private void Checkinbutton_Click(object sender, EventArgs e)
         {
-
+            Reservas r = new Reservas();
+            ReservasBLL.checkins(r);
         }
+        private bool Existencia()
+        {
+            bool paso = false;
+            string estado = "Ocupado";
+            
+            RepositorioBase<Habitaciones> repositorio = new RepositorioBase<Habitaciones>();
+            Habitaciones ha = repositorio.Buscar(Convert.ToInt32(NumerocomboBox.SelectedValue));
+            if (estado == ha.Estado)
+            {
+                MessageBox.Show("Habitacion Ocupada!!", "Fallo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                paso = true;
+            }
+            
+            return paso;
+        }
+
 
         private void NumerocomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -325,7 +342,10 @@ namespace Hotell.UI.Registros
 
         private void PreciotextBox_TextChanged(object sender, EventArgs e)
         {
-            
+            decimal precio = ToDecimal(PreciotextBox.Text);
+            decimal dias = ToDecimal(ValortextBox.Text);
+            decimal importe = precio * dias;
+            ImporteTextBox.Text = importe.ToString();
         }
 
         private void ValortextBox_TextChanged(object sender, EventArgs e)
@@ -350,6 +370,54 @@ namespace Hotell.UI.Registros
                 CargarGrid();
                 CalcularTotal();
             }
+        }
+        private void CargaTotal()
+        {
+            List<ReservasDetalle> detalle = new List<ReservasDetalle>();
+
+            if (dataGridView1.DataSource != null)
+            {
+                detalle = (List<ReservasDetalle>)dataGridView1.DataSource;
+            }
+            decimal Total = 0;
+            foreach (var item in detalle)
+            {
+                Total += item.Importe;
+            }
+            MontotextBox.Text = Total.ToString();
+        }
+
+        private void RebajaTotal()
+        {
+            List<ReservasDetalle> detalle = new List<ReservasDetalle>();
+
+            if (dataGridView1.DataSource != null)
+            {
+                detalle = (List<ReservasDetalle>)dataGridView1.DataSource;
+            }
+            decimal Total = 0;
+            foreach (var item in detalle)
+            {
+                Total -= item.Importe;
+            }
+            Total *= (-1);
+            MontotextBox.Text = Total.ToString();
+        }
+
+        private int ToInt(object valor)
+        {
+            int retorno = 0;
+            int.TryParse(valor.ToString(), out retorno);
+
+            return retorno;
+        }
+
+        private decimal ToDecimal(object valor)
+        {
+            decimal retorno = 0;
+            decimal.TryParse(valor.ToString(), out retorno);
+
+            return retorno;
         }
     }
     }

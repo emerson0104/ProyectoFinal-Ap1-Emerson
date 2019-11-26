@@ -116,6 +116,7 @@
             this.PreciotextBox.Name = "PreciotextBox";
             this.PreciotextBox.Size = new System.Drawing.Size(183, 20);
             this.PreciotextBox.TabIndex = 13;
+            this.PreciotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PreciotextBox_KeyPress);
             // 
             // CamasnumericUpDown
             // 
@@ -144,6 +145,7 @@
             this.DescripciontextBox.Name = "DescripciontextBox";
             this.DescripciontextBox.Size = new System.Drawing.Size(183, 20);
             this.DescripciontextBox.TabIndex = 10;
+            this.DescripciontextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DescripciontextBox_KeyPress);
             // 
             // NumerotextBox
             // 
@@ -288,6 +290,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "rHabitaciones";
             this.Text = "rHabitaciones";
+            this.Load += new System.EventHandler(this.RHabitaciones_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CamasnumericUpDown)).EndInit();

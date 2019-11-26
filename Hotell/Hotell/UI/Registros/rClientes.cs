@@ -94,6 +94,7 @@ namespace Hotell.UI.Registros
             }
             return paso;
         }
+     
         public static bool RepetirEmail(string descripcion)
         {
             bool paso = false;
@@ -167,6 +168,7 @@ namespace Hotell.UI.Registros
                 MyerrorProvider.SetError(EmailtextBox, "No puede Estar vacio.");
                 paso = false;
             }
+            
             return paso;
         }
         private void Nuevobutton_Click(object sender, EventArgs e)
@@ -239,6 +241,18 @@ namespace Hotell.UI.Registros
                 MessageBox.Show("Eliminado");
             else
                 MyerrorProvider.SetError(IdnumericUpDown, "No existe.");
+        }
+
+        private void NombrestextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void ApellidostextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+                e.Handled = true;
         }
     }
     

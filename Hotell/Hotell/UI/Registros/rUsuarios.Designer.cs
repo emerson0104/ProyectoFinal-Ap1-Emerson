@@ -171,6 +171,7 @@
             // 
             this.ConfirmartextBox.Location = new System.Drawing.Point(101, 210);
             this.ConfirmartextBox.Name = "ConfirmartextBox";
+            this.ConfirmartextBox.PasswordChar = '*';
             this.ConfirmartextBox.Size = new System.Drawing.Size(197, 20);
             this.ConfirmartextBox.TabIndex = 18;
             // 
@@ -204,6 +205,7 @@
             this.CelularmaskedTextBox1.Name = "CelularmaskedTextBox1";
             this.CelularmaskedTextBox1.Size = new System.Drawing.Size(197, 20);
             this.CelularmaskedTextBox1.TabIndex = 14;
+            this.CelularmaskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.CelularmaskedTextBox1_MaskInputRejected);
             // 
             // ApellidostextBox
             // 
@@ -211,11 +213,13 @@
             this.ApellidostextBox.Name = "ApellidostextBox";
             this.ApellidostextBox.Size = new System.Drawing.Size(197, 20);
             this.ApellidostextBox.TabIndex = 12;
+            this.ApellidostextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ApellidostextBox_KeyPress);
             // 
             // ClavetextBox
             // 
             this.ClavetextBox.Location = new System.Drawing.Point(101, 181);
             this.ClavetextBox.Name = "ClavetextBox";
+            this.ClavetextBox.PasswordChar = '*';
             this.ClavetextBox.Size = new System.Drawing.Size(197, 20);
             this.ClavetextBox.TabIndex = 11;
             // 
@@ -225,6 +229,7 @@
             this.NombrestextBox.Name = "NombrestextBox";
             this.NombrestextBox.Size = new System.Drawing.Size(197, 20);
             this.NombrestextBox.TabIndex = 10;
+            this.NombrestextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombrestextBox_KeyPress);
             // 
             // NombreUsuariotextBox
             // 

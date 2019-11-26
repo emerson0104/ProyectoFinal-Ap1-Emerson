@@ -56,6 +56,7 @@
             this.Imprimirbutton.Size = new System.Drawing.Size(64, 64);
             this.Imprimirbutton.TabIndex = 34;
             this.Imprimirbutton.UseVisualStyleBackColor = true;
+            this.Imprimirbutton.Click += new System.EventHandler(this.Imprimirbutton_Click);
             // 
             // ConsultadataGridView
             // 

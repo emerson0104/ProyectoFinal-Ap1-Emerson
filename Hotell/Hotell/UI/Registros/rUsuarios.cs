@@ -46,7 +46,7 @@ namespace Hotell.UI.Registros
             usuarios.Usuario = NombreUsuariotextBox.Text;
             usuarios.Clave = ClavetextBox.Text;
             usuarios.NivelAcceso = TiposcomboBox.Text;
-            usuarios.TotalVentas = Convert.ToDecimal(TotalVendidotextBox.Text);
+            usuarios.TotalVentas =0;
             usuarios.Email = EmailtextBox.Text;
             usuarios.FechaCreacion = FechaCreaciondateTimePicker.Value;
             usuarios.Celular = CelularmaskedTextBox1.Text;
@@ -132,11 +132,11 @@ namespace Hotell.UI.Registros
                 MyErrorProvider.SetError(ClavetextBox, "No puede ser vacio.");
                 paso = false;
             }
-            //  if ((CelularmaskedTextBox1.MaskCompleted))
-          //   {
-           //    MyErrorProvider.SetError(CelularmaskedTextBox1, "No puede ser vacio.");
-           //   paso = false;
-           //   }
+             if ((!CelularmaskedTextBox1.MaskCompleted))
+             {
+               MyErrorProvider.SetError(CelularmaskedTextBox1, "No puede ser vacio.");
+             paso = false;
+             }
             if (ConfirmartextBox.Text != ClavetextBox.Text)
             {
                 MyErrorProvider.SetError(ConfirmartextBox, "La clave no coincide.");
@@ -216,6 +216,23 @@ namespace Hotell.UI.Registros
                 LlenaCampo(usuarios);
             else
                 MessageBox.Show("No encontrado.");
+        }
+
+        private void NombrestextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void ApellidostextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void CelularmaskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
     }

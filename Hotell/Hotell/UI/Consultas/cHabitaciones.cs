@@ -1,5 +1,6 @@
 ﻿using Hotell.BLL;
 using Hotell.Entidades;
+using Hotell.UI.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,8 +26,7 @@ namespace Hotell.UI.Consultas
             var listado = new List<Habitaciones>();
             RepositorioBase<Habitaciones> r = new RepositorioBase<Habitaciones>();
 
-            if (RangocheckBox.Checked == true)
-            {
+           
                 if (CriteriotextBox.Text.Trim().Length > 0)
                 {
                     switch (FiltrocomboBox.Text)
@@ -78,8 +78,7 @@ namespace Hotell.UI.Consultas
                             break;
                     }
                     //     listado = listado.Where(c => c.Fecha.Date >= DesdedateTimePicker.Value.Date && c.Fecha.Date <= HastadateTimePicker.Value.Date).ToList();
-                }
-                else
+               
                 {
                     if (FiltrocomboBox.Text == string.Empty)
                     {
@@ -183,8 +182,8 @@ namespace Hotell.UI.Consultas
             }
             else
             {
-           //     ClientesReport reporte = new ClientesReport(Lista);
-               // reporte.ShowDialog();
+           HabitacionesReporte reporte = new HabitacionesReporte(Lista);
+              reporte.ShowDialog();
             }
         }
 

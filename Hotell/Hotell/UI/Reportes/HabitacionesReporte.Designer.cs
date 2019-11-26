@@ -1,6 +1,6 @@
 ﻿namespace Hotell.UI.Reportes
 {
-    partial class ClientesReport
+    partial class HabitacionesReporte
     {
         /// <summary>
         /// Required designer variable.
@@ -41,18 +41,16 @@
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.Size = new System.Drawing.Size(800, 450);
             this.crystalReportViewer1.TabIndex = 0;
-            this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             this.crystalReportViewer1.Load += new System.EventHandler(this.CrystalReportViewer1_Load);
             // 
-            // ClientesReport
+            // HabitacionesReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.crystalReportViewer1);
-            this.Name = "ClientesReport";
-            this.Text = "ClientesReport";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Name = "HabitacionesReporte";
+            this.Text = "HabitacionesReporte";
             this.ResumeLayout(false);
 
         }

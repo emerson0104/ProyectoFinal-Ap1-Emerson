@@ -95,6 +95,16 @@ namespace Hotell.UI.Registros
                 MyErrorProvider.SetError(EstadocomboBox, "No puede ser vacio.");
                 paso = false;
             }
+            if(Convert.ToInt32(PreciotextBox.Text )<= 0)
+            {
+                MyErrorProvider.SetError(PreciotextBox, "No puede ser Menor o igual Que 0.");
+                paso = false;
+            }
+            if (CamasnumericUpDown.Value <= 0)
+            {
+                MyErrorProvider.SetError(CamasnumericUpDown, "No puede ser Menor o igual Que 0.");
+                paso = false;
+            }
             return paso;
         }
         public static bool Repetir(string descripcion)
@@ -126,7 +136,7 @@ namespace Hotell.UI.Registros
                 MyErrorProvider.SetError(NumerotextBox, "No se debe repetir los Numeros de la habitacion.");
                 paso = false;
             }
-
+           
             return paso;
         }
 
@@ -199,6 +209,38 @@ namespace Hotell.UI.Registros
                 LlenaCampo(h);
             else
                 MessageBox.Show("No encontrado.");
+        }
+
+        private void PreciotextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void RHabitaciones_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DescripciontextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+                e.Handled = true;
         }
     }
 }

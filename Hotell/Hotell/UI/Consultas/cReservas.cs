@@ -1,5 +1,6 @@
 ﻿using Hotell.BLL;
 using Hotell.Entidades;
+using Hotell.UI.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,8 +23,8 @@ namespace Hotell.UI.Consultas
 
         private void Consultarbutton_Click(object sender, EventArgs e)
         {
-   var listado = new List<Reservas>();
-        RepositorioBase<Reservas> r = new RepositorioBase<Reservas>();
+            var listado = new List<Reservas>();
+            RepositorioBase<Reservas> r = new RepositorioBase<Reservas>();
             if (RangocheckBox.Checked == true)
             {
                 if (CriteriotextBox.Text.Trim().Length > 0)
@@ -42,7 +43,7 @@ namespace Hotell.UI.Consultas
                             else
                             {
                                 int id = Convert.ToInt32(CriteriotextBox.Text);
-    listado = r.GetList(p => p.UsuarioId == id);
+                                listado = r.GetList(p => p.UsuarioId == id);
                             }
                             break;
                         case "Cliente":
@@ -69,7 +70,7 @@ namespace Hotell.UI.Consultas
                         MessageBox.Show("El filtro no puede estar vacio.");
                     }
                     else
-                       if ((string) FiltrocomboBox.Text != "Todo")
+                       if ((string)FiltrocomboBox.Text != "Todo")
                     {
                         if (CriteriotextBox.Text == string.Empty)
                         {
@@ -100,7 +101,7 @@ namespace Hotell.UI.Consultas
                             else
                             {
                                 int id = Convert.ToInt32(CriteriotextBox.Text);
-listado = r.GetList(p => p.UsuarioId == id);
+                                listado = r.GetList(p => p.UsuarioId == id);
                             }
                             break;
                         case "Cliente":
@@ -116,7 +117,7 @@ listado = r.GetList(p => p.UsuarioId == id);
                             }
                             break;
 
-                      
+
                     }
                 }
                 else
@@ -126,7 +127,7 @@ listado = r.GetList(p => p.UsuarioId == id);
                         MessageBox.Show("El filtro no puede estar vacio.");
                     }
                     else
-                       if ((string) FiltrocomboBox.Text != "Todo")
+                       if ((string)FiltrocomboBox.Text != "Todo")
                     {
                         if (CriteriotextBox.Text == string.Empty)
                         {
@@ -144,5 +145,18 @@ listado = r.GetList(p => p.UsuarioId == id);
             }
         }
 
+        private void Imprimirbutton_Click(object sender, EventArgs e)
+        {
+            if (ConsultadataGridView.RowCount == 0)
+            {
+                MessageBox.Show("No se puede imprimir");
+                return;
+            }
+            else
+            {
+                ReservaReporte reporte = new ReservaReporte(Lista);
+                reporte.ShowDialog();
+            }
+        }
     }
 }

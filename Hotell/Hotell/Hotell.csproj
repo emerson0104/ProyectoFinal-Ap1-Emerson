@@ -69,6 +69,12 @@
     <Compile Include="Entidades\Reservas.cs" />
     <Compile Include="Entidades\ReservasDetalle.cs" />
     <Compile Include="Entidades\Usuarios.cs" />
+    <Compile Include="Logins.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Logins.Designer.cs">
+      <DependentUpon>Logins.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,12 +137,57 @@
     <Compile Include="UI\Reportes\ClientesReport.Designer.cs">
       <DependentUpon>ClientesReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Reportes\Detalle.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Detalle.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\HabitacionesReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\HabitacionesReporte.Designer.cs">
+      <DependentUpon>HabitacionesReporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Reportes\ListadoClientes.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ListadoClientes.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UI\Reportes\ListadoHabitaciones.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListadoHabitaciones.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ListadoReservas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListadoReservas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ListadoUsuario.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListadoUsuario.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReservaReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReservaReporte.Designer.cs">
+      <DependentUpon>ReservaReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\UsuarioReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\UsuarioReport.Designer.cs">
+      <DependentUpon>UsuarioReport.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Logins.resx">
+      <DependentUpon>Logins.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,9 +228,34 @@
     <EmbeddedResource Include="UI\Reportes\ClientesReport.resx">
       <DependentUpon>ClientesReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\Detalle.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Detalle.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\HabitacionesReporte.resx">
+      <DependentUpon>HabitacionesReporte.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\ListadoClientes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ListadoClientes.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\ListadoHabitaciones.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ListadoHabitaciones.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\ListadoReservas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ListadoReservas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\ListadoUsuario.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ListadoUsuario.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\ReservaReporte.resx">
+      <DependentUpon>ReservaReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\UsuarioReport.resx">
+      <DependentUpon>UsuarioReport.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -153,7 +153,7 @@ namespace Hotell.BLL
             }
             return lista;
         }
-        public static bool checkins(int id)
+        public static bool checkins(Reservas r)
         {
             Reservas v = new Reservas();
             Contexto db = new Contexto();
@@ -162,12 +162,10 @@ namespace Hotell.BLL
             try
             {
                 string estado = "Disponible";
-                foreach (var item in v.Detalle)
+                foreach (var item in r.Detalle)
                 {
                     db.Habitaciones.Find(item.HabitacionId).Estado = estado;
                 }
-
-                var Ventas = db.Reservas.Find(id);
 
                 paso = db.SaveChanges() > 0;
             }
@@ -182,9 +180,11 @@ namespace Hotell.BLL
         }
         public static bool checkout(int id)
         {
+            
             Reservas v = new Reservas();
             Contexto db = new Contexto();
             bool paso = false;
+            RepositorioBase<Habitaciones> r = new RepositorioBase<Habitaciones>();
 
             try
             {
@@ -194,7 +194,7 @@ namespace Hotell.BLL
                     db.Habitaciones.Find(item.HabitacionId).Estado = estado;
                 }
 
-                var Ventas = db.Reservas.Find(id);
+                var Ventas = db.Reservas.Find(id );
                 db.Entry(v).State = EntityState.Modified;
                 paso = db.SaveChanges() > 0;
             }
