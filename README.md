@@ -7,3 +7,8 @@
 
 # Menu Principal
 ![Captura](https://user-images.githubusercontent.com/54726092/69751834-44dd3a80-1126-11ea-814e-0dd02ea7b87e.JPG)
+
+# Aqui Un Modelo De Uno de Los Registro De Mi Proyecto
+
+![Captura2](https://user-images.githubusercontent.com/54726092/69752089-e2386e80-1126-11ea-847d-386bb1e427f2.JPG)
+
